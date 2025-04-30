@@ -1,40 +1,50 @@
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    z-index: 100; /* Asegura que la barra de navegación esté siempre encima */
+}
+
+.content-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-  }
+    flex: 1; /* Ocupa todo el espacio disponible en el contenedor */
+    margin-top: 60px; /* Ajusta este valor si es necesario para el tamaño de la barra de navegación */
+}
 
-  .card {
+.card {
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 300px;
     text-align: center;
     padding: 20px;
-  }
+}
 
-  .card img {
+.card img {
     border-radius: 50%;
     width: 100px;
     height: 100px;
-  }
+}
 
-  .card h2 {
+.card h2 {
     margin-top: 15px;
     font-size: 22px;
-  }
+}
 
-  .card p {
+.card p {
     color: #555;
     font-size: 14px;
     margin: 10px 0;
-  }
+}
 
-  .card button {
+.card button {
     background-color: #007bff;
     color: white;
     border: none;
@@ -42,13 +52,13 @@ body {
     border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
-  }
+}
 
-  .card button:hover {
+.card button:hover {
     background-color: #0056b3;
-  }
+}
 
-  .extra-info {
+.extra-info {
     display: none;
     margin-top: 10px;
     color: #444;
