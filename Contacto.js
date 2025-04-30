@@ -1,21 +1,32 @@
-function validacion() {
-    var nombre = document.getElementById('nombre')
-    if(nombre.value.length == 0 || !nombre.value.match(/^[A-Za-zÁÉÍÓÚáéíóú\s]+$/)){
-        alert("El nombre debe contener solo letras y espacios")
-        return false;
-    }
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contactForm");
 
-    var email=document.getElementById('email').value
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Previene el envío real
 
-    if( !(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email)) ) { 
-        alert("El correo ingresado es incorrecto")
-        return false
-    }
-    
-    var mensaje=document.getElementById('mensaje')
-    if(mensaje.value.length==0){
-        alert("No puede enviar un mensaje vacio.")
-    }
+        const nombre = document.getElementById("nombre").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const mensaje = document.getElementById("mensaje").value.trim();
 
-    return true
-}
+        let errores = [];
+
+        if (nombre === "") {
+            errores.push("El nombre es obligatorio.");
+        }
+
+        if (!email.match(/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/)) {
+            errores.push("El correo electrónico no es válido.");
+        }
+
+        if (mensaje.length < 10) {
+            errores.push("El mensaje debe tener al menos 10 caracteres.");
+        }
+
+        if (errores.length > 0) {
+            alert("Por favor corrija los siguientes errores:\n\n" + errores.join("\n"));
+        } else {
+            alert("Formulario enviado correctamente.");
+            form.reset();
+        }
+    });
+});
